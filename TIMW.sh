@@ -182,4 +182,18 @@ else
     echo "Invalid input. Please enter 'yes' or 'no'."
 fi
 
+read -p "Do you want to install cosmic-app-library-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-app-library-git
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-app-library-git/cosmic-app-library-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic
+elif [[ "$answer" =~ ^[Nn] ]]; then
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
 sudo cp /etc/sudoers.bak /etc/sudoers
