@@ -173,7 +173,6 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     git clone https://aur.archlinux.org/cosmic-comp-git.git
     git clone https://aur.archlinux.org/cosmic-files-git.git
     git clone https://aur.archlinux.org/cosmic-greeter-git.git
-    git clone https://aur.archlinux.org/cosmic-icons-git.git
     git clone https://aur.archlinux.org/cosmic-idle-git.git
     git clone https://aur.archlinux.org/cosmic-launcher-git.git
     git clone https://aur.archlinux.org/cosmic-notifications-git.git
