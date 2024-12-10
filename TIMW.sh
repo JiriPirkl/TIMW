@@ -62,16 +62,16 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     echo "Continue."
     arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
     cd /home/$username/TIMW-AUR/sources/directx-headers-git
-    makechrootpkg -c -r /home/$username/chroot/ -- --skippgpcheck
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/directx-headers-git/directx-headers-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/mesa-git/
     cd /home/$username/TIMW-AUR/sources/mesa-git/
-    makechrootpkg -c -r /home/$username/chroot/ -I directx-headers-git*.pkg.tar.zst -- --skippgpcheck
+    makechrootpkg -c -r /home/$username/chroot/ -I directx-headers-git*.pkg.tar.zst -- --skipinteg
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/mesa-git/directx-headers-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/
     mv /home/$username/TIMW-AUR/sources/mesa-git/mesa-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/lib32-mesa-git/
     cd /home/$username/TIMW-AUR/sources/lib32-mesa-git/
-    makechrootpkg -c -r /home/$username/chroot/ -I mesa-git*.pkg.tar.zst -- --skippgpcheck
+    makechrootpkg -c -r /home/$username/chroot/ -I mesa-git*.pkg.tar.zst -- --skipinteg
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/lib32-mesa-git/mesa-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64 ; mv /home/$username/TIMW-AUR/sources/lib32-mesa-git/lib32-mesa-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64
 elif [[ "$answer" =~ ^[Nn] ]]; then
@@ -85,7 +85,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     echo "Continue."
     arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
     cd /home/$username/TIMW-AUR/sources/wine-staging-wow64-git
-    makechrootpkg -c -r /home/$username/chroot/ -- --skippgpcheck
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/wine-staging-wow64-git/wine-staging-wow64-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/
 elif [[ "$answer" =~ ^[Nn] ]]; then
@@ -99,15 +99,15 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     echo "Continue."
     arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
     cd /home/$username/TIMW-AUR/sources/dxvk-mingw
-    makechrootpkg -c -r /home/$username/chroot/ -- --skippgpcheck
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/dxvk-mingw/dxvk-mingw*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/
     cd /home/$username/TIMW-AUR/sources/mingw-w64-tools
-    makechrootpkg -c -r /home/$username/chroot/ -- --skippgpcheck
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/mingw-w64-tools/mingw-w64-tools*.pkg.tar.zst /home/$username/TIMW-AUR/sources/vkd3d-proton-mingw-git
     cd /home/$username/TIMW-AUR/sources/vkd3d-proton-mingw-git
-    makechrootpkg -c -r /home/$username/chroot/ -I mingw-w64-tools*.pkg.tar.zst -- --skippgpcheck
+    makechrootpkg -c -r /home/$username/chroot/ -I mingw-w64-tools*.pkg.tar.zst -- --skipinteg
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/vkd3d-proton-mingw-git/mingw-w64-tools*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/ ; mv /home/$username/TIMW-AUR/sources/vkd3d-proton-mingw-git/vkd3d-proton-mingw-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/
 elif [[ "$answer" =~ ^[Nn] ]]; then
@@ -121,7 +121,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     echo "Continue."
     arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
     cd /home/$username/TIMW-AUR/sources/kodi-git
-    makechrootpkg -c -r /home/$username/chroot/ -- --skippgpcheck
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/kodi-git/kodi-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/
 elif [[ "$answer" =~ ^[Nn] ]]; then
@@ -135,7 +135,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     echo "Continue."
     arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
     cd /home/$username/TIMW-AUR/sources/lact-git
-    makechrootpkg -c -r /home/$username/chroot/ -- --skippgpcheck
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/lact-git/lact-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/
 elif [[ "$answer" =~ ^[Nn] ]]; then
@@ -149,7 +149,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     echo "Continue."
     arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
     cd /home/$username/TIMW-AUR/sources/librewolf-bin
-    makechrootpkg -c -r /home/$username/chroot/ -- --skippgpcheck
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/librewolf-bin/librewolf-bin*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/
 elif [[ "$answer" =~ ^[Nn] ]]; then
