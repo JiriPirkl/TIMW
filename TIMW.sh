@@ -158,4 +158,41 @@ else
     echo "Invalid input. Please enter 'yes' or 'no'."
 fi
 
+read -p "Do you want to download cosmic-sources ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    rm -rf /home/$username/TIMW-AUR/sources/cosmic
+    mkdir -p /home/$username/TIMW-AUR/sources/cosmic
+    mkdir -p /home/$username/TIMW-AUR/x86_64
+    cd /home/$username/TIMW-AUR/sources/cosmic
+    git clone https://aur.archlinux.org/cosmic-app-library-git.git
+    git clone https://aur.archlinux.org/cosmic-applets-git.git
+    git clone https://aur.archlinux.org/cosmic-icons-git.git
+    git clone https://aur.archlinux.org/pop-icon-theme-git.git
+    git clone https://aur.archlinux.org/cosmic-bg-git.git
+    git clone https://aur.archlinux.org/cosmic-comp-git.git
+    git clone https://aur.archlinux.org/cosmic-files-git.git
+    git clone https://aur.archlinux.org/cosmic-greeter-git.git
+    git clone https://aur.archlinux.org/cosmic-icons-git.git
+    git clone https://aur.archlinux.org/cosmic-idle-git.git
+    git clone https://aur.archlinux.org/cosmic-launcher-git.git
+    git clone https://aur.archlinux.org/cosmic-notifications-git.git
+    git clone https://aur.archlinux.org/cosmic-osd-git.git
+    git clone https://aur.archlinux.org/cosmic-panel-git.git
+    git clone https://aur.archlinux.org/cosmic-randr-git.git
+    git clone https://aur.archlinux.org/cosmic-screenshot-git.git
+    git clone https://aur.archlinux.org/xdg-desktop-portal-cosmic-git.git
+    git clone https://aur.archlinux.org/cosmic-settings-daemon-git.git
+    git clone https://aur.archlinux.org/pop-sound-theme-git.git
+    git clone https://aur.archlinux.org/cosmic-settings-git.git
+    git clone https://aur.archlinux.org/cosmic-workspaces-git.git
+    git clone https://aur.archlinux.org/cosmic-edit-git.git
+    git clone https://aur.archlinux.org/cosmic-term-git.git
+    git clone https://aur.archlinux.org/cosmic-session-git.git
+elif [[ "$answer" =~ ^[Nn] ]]; then
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
 sudo cp /etc/sudoers.bak /etc/sudoers
