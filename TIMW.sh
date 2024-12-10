@@ -122,7 +122,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
     cd /home/$username/TIMW-AUR/sources/kodi-git
     makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
-    rm -rf *debug*.pkg.tar.zst
+    rm -rf *debug*.pkg.tar.zst ; rm -rf kodi-git-dev*.pkg.tar.zst ; rm -rf kodi-git-eventclient*.pkg.tar.zst ; rm -rf kodi-git-tools-texturepacker*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/kodi-git/kodi-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/
 elif [[ "$answer" =~ ^[Nn] ]]; then
     echo "Continue."
