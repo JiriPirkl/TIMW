@@ -75,6 +75,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     git clone https://aur.archlinux.org/cosmic-edit-git.git
     git clone https://aur.archlinux.org/cosmic-term-git.git
     git clone https://aur.archlinux.org/cosmic-session-git.git
+    git clone https://aur.archlinux.org/pop-launcher-git.git
 elif [[ "$answer" =~ ^[Nn] ]]; then
     echo "Continue."
 else
@@ -208,6 +209,106 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     makechrootpkg -c -r /home/$username/chroot/ -I pop-icon-theme-git*.pkg.tar.zst -- --skipinteg
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-icons-git/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-icons-git/cosmic-icons-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+elif [[ "$answer" =~ ^[Nn] ]]; then
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
+read -p "Do you want to install cosmic-applets-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-applets-git
+    mv /home/$username/TIMW-AUR/x86_64/cosmic/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/cosmic/cosmic-applets-git ; mv /home/$username/TIMW-AUR/x86_64/cosmic/cosmic-icons-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/cosmic/cosmic-applets-git
+    makechrootpkg -c -r /home/$username/chroot/ -I pop-icon-theme-git*.pkg.tar.zst -I cosmic-icons-git*.pkg.tar.zst -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-applets-git/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-applets-git/cosmic-icons-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-applets-git/cosmic-applets-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+elif [[ "$answer" =~ ^[Nn] ]]; then
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
+read -p "Do you want to cosmic-bg-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-bg-git
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-bg-git/cosmic-bg-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
+read -p "Do you want to install cosmic-comp-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-comp-git
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-comp-git/cosmic-comp-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
+read -p "Do you want to install cosmic-files-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-files-git
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-files-git/cosmic-files-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
+read -p "Do you want to install cosmic-greeter-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-files-git
+    mv /home/$username/TIMW-AUR/x86_64/cosmic/cosmic-comp-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/cosmic/cosmic-greeter-git
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-greeter-git/cosmic-comp-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-greeter-git/cosmic-greeter-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
+read -p "Do you want to install cosmic-idle-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-idle-git
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-idle-git/cosmic-idle-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
+read -p "Do you want to install cosmic-launcher-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/pop-launcher-git
+    mv /home/$username/TIMW-AUR/x86_64/cosmic/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/cosmic/pop-launcher-git
+    makechrootpkg -c -r /home/$username/chroot/ -I pop-icon-theme-git*.pkg.tar.zst -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/pop-launcher-git/pop-launcher-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/cosmic/cosmic-launcher-git ; mv /home/$username/TIMW-AUR/sources/cosmic/pop-launcher-git/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/cosmic/cosmic-launcher-git
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-launcher-git
+    makechrootpkg -c -r /home/$username/chroot/ -I pop-icon-theme-git*.pkg.tar.zst -I pop-launcher-git*.pkg.tar.zst -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-launcher-git/pop-launcher-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-launcher-git/cosmic-launcher-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-launcher-git/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 elif [[ "$answer" =~ ^[Nn] ]]; then
     echo "Continue."
 else
