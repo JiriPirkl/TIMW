@@ -196,4 +196,22 @@ else
     echo "Invalid input. Please enter 'yes' or 'no'."
 fi
 
+read -p "Do you want to install cosmic-icons-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/pop-icon-theme-git
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/pop-icon-theme-git/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/cosmic/cosmic-icons-git
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-icons-git
+    makechrootpkg -c -r /home/$username/chroot/ -I pop-icon-theme-git*.pkg.tar.zst -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-icons-git/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-icons-git/cosmic-icons-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+elif [[ "$answer" =~ ^[Nn] ]]; then
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
 sudo cp /etc/sudoers.bak /etc/sudoers
