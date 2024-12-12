@@ -10,8 +10,9 @@
 #Do you want to install lact-git (yes/no)
 #Do you want to install librewolf-bin (yes/no)
 #Do you want to install cosmic-app-library-git (yes/no)
-
+#Do you want to install Do you want to install cosmic-icons-git (yes/no)
 sh TIMW.sh <<< "timw
+y
 y
 y
 y
