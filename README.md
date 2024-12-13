@@ -18,9 +18,20 @@
 #Do you want to install cosmic-greeter-git
 #Do you want to install cosmic-idle-git
 #Do you want to install cosmic-launcher-git
-
+#Do you want to install cosmic-notifications-git
+#Do you want to install cosmic-osd-git
+#Do you want to install cosmic-panel-git
+#Do you want to install cosmic-randr-git
+#Do you want to install xdg-desktop-portal-cosmic-git
+#Do you want to install cosmic-screenshot-git
 
 sh TIMW.sh <<< "timw
+y
+y
+y
+y
+y
+y
 y
 y
 y
