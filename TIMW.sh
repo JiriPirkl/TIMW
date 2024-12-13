@@ -230,7 +230,7 @@ else
     echo "Invalid input. Please enter 'yes' or 'no'."
 fi
 
-read -p "Do you want to cosmic-bg-git ? (yes/no): " answer
+read -p "Do you want to install cosmic-bg-git ? (yes/no): " answer
 if [[ "$answer" =~ ^[Yy] ]]; then
     echo "Continue."
     arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
@@ -310,6 +310,85 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-launcher-git/pop-launcher-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-launcher-git/cosmic-launcher-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-launcher-git/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 elif [[ "$answer" =~ ^[Nn] ]]; then
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
+read -p "Do you want to install cosmic-notifications-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-notifications-git
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-notifications-git/cosmic-notifications-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
+read -p "Do you want to install cosmic-osd-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-osd-git
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-osd-git/cosmic-osd-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
+read -p "Do you want to install cosmic-panel-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-panel-git
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-panel-git/cosmic-panel-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
+read -p "Do you want to install cosmic-randr-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-randr-git
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-randr-git/cosmic-randr-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
+read -p "Do you want to install xdg-desktop-portal-cosmic-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/xdg-desktop-portal-cosmic-git
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/xdg-desktop-portal-cosmic-git/xdg-desktop-portal-cosmic-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
+read -p "Do you want to install cosmic-screenshot-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-screenshot-git
+    mv /home/$username/TIMW-AUR/x86_64/cosmic/xdg-desktop-portal-cosmic-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/cosmic/cosmic-screenshot-git
+    makechrootpkg -c -r /home/$username/chroot/ -I xdg-desktop-portal-cosmic-git*.pkg.tar.zst -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-screenshot-git/xdg-desktop-portal-cosmic-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-screenshot-git/cosmic-screenshot-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
     echo "Continue."
 else
     echo "Invalid input. Please enter 'yes' or 'no'."
