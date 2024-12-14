@@ -383,7 +383,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     mv /home/$username/TIMW-AUR/x86_64/cosmic/*.pkg.tar.zst /home/$username/TIMW-AUR/sources/cosmic/cosmic-session-git
     makechrootpkg -c -r /home/$username/chroot/ -I cosmic-app-library-git*.pkg.tar.zst -I pop-icon-theme-git*.pkg.tar.zst -I cosmic-icons-git*.pkg.tar.zst -I pop-icon-theme-git*.pkg.tar.zst -I cosmic-applets-git*.pkg.tar.zst -I cosmic-bg-git*.pkg.tar.zst -I cosmic-comp-git*.pkg.tar.zst -I cosmic-files-git*.pkg.tar.zst -I cosmic-files-git*.pkg.tar.zst -I cosmic-greeter-git*.pkg.tar.zst -I cosmic-idle-git*.pkg.tar.zst -I pop-launcher-git*.pkg.tar.zst -I cosmic-launcher-git*.pkg.tar.zst -I cosmic-notifications-git*.pkg.tar.zst -I cosmic-osd-git*.pkg.tar.zst -I cosmic-panel-git*.pkg.tar.zst -I cosmic-randr-git*.pkg.tar.zst -I xdg-desktop-portal-cosmic-git*.pkg.tar.zst -I cosmic-screenshot-git*.pkg.tar.zst -I pop-sound-theme-git*.pkg.tar.zst -I cosmic-settings-daemon-git*.pkg.tar.zst -I cosmic-settings-git*.pkg.tar.zst -I cosmic-workspaces-git*.pkg.tar.zst -- --skipinteg
     rm -rf *debug*.pkg.tar.zst
-    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-session-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-session-git/*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
     echo "Invalid input. Please enter 'yes' or 'no'."
 fi
