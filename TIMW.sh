@@ -33,6 +33,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     echo "Continue."
     rm -rf /home/$username/TIMW-AUR/sources
     mkdir -p /home/$username/TIMW-AUR/sources/cosmic
+    rm -rf /home/$username/TIMW-AUR/x86_64/
     mkdir -p /home/$username/TIMW-AUR/x86_64/cosmic
     cd /home/$username/TIMW-AUR/sources
     git clone https://aur.archlinux.org/directx-headers-git.git
@@ -389,6 +390,50 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     makechrootpkg -c -r /home/$username/chroot/ -I xdg-desktop-portal-cosmic-git*.pkg.tar.zst -- --skipinteg
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-screenshot-git/xdg-desktop-portal-cosmic-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-screenshot-git/cosmic-screenshot-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
+read -p "Do you want to install cosmic-settings-daemon-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/pop-sound-theme-git
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/pop-sound-theme-git/pop-sound-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-daemon-git
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-daemon-git
+    makechrootpkg -c -r /home/$username/chroot/ -I pop-sound-theme-git*.pkg.tar.zst -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-daemon-git/pop-sound-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-daemon-git/cosmic-settings-daemon-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
+read -p "Do you want to install cosmic-settings-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    mv /home/$username/TIMW-AUR/x86_64/cosmic/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-git ; mv /home/$username/TIMW-AUR/x86_64/cosmic/cosmic-icons-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-git ; mv /home/$username/TIMW-AUR/x86_64/cosmic/cosmic-randr-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-git
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-git
+    makechrootpkg -c -r /home/$username/chroot/ -I pop-icon-theme-git*.pkg.tar.zst -I cosmic-icons-git*.pkg.tar.zst -I cosmic-randr-git*.pkg.tar.zst -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-git/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-git/cosmic-icons-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-git/cosmic-randr-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-git/cosmic-settings-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
+    echo "Continue."
+else
+    echo "Invalid input. Please enter 'yes' or 'no'."
+fi
+
+read -p "Do you want to install cosmic-workspaces-git ? (yes/no): " answer
+if [[ "$answer" =~ ^[Yy] ]]; then
+    echo "Continue."
+    arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
+    cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-workspaces-git
+    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
+    rm -rf *debug*.pkg.tar.zst
+    mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-workspaces-git/cosmic-workspaces-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
     echo "Continue."
 else
     echo "Invalid input. Please enter 'yes' or 'no'."
