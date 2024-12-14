@@ -22,7 +22,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     sudo sed -i '/# after the header, and they will be used before the default mirrors./a\[core-testing]' /home/$username/chroot/root/etc/pacman.conf
     arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to download sources ? (yes/no): " answer
@@ -74,7 +74,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     git clone https://aur.archlinux.org/cosmic-session-git.git
     git clone https://aur.archlinux.org/pop-launcher-git.git
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install mesa-git ? (yes/no): " answer
@@ -93,7 +93,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/lib32-mesa-git/mesa-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64 ; mv /home/$username/TIMW-AUR/sources/lib32-mesa-git/lib32-mesa-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install wine-staging-wow64-git ? (yes/no): " answer
@@ -104,7 +104,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/wine-staging-wow64-git/wine-staging-wow64-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install dxvk/vkd3d-proton ? (yes/no): " answer
@@ -123,7 +123,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/vkd3d-proton-mingw-git/mingw-w64-tools*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/ ; mv /home/$username/TIMW-AUR/sources/vkd3d-proton-mingw-git/vkd3d-proton-mingw-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install kodi-git ? (yes/no): " answer
@@ -134,7 +134,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst ; rm -rf kodi-git-dev*.pkg.tar.zst ; rm -rf kodi-git-eventclient*.pkg.tar.zst ; rm -rf kodi-git-tools-texturepacker*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/kodi-git/kodi-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install lact-git ? (yes/no): " answer
@@ -145,7 +145,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/lact-git/lact-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install librewolf-bin ? (yes/no): " answer
@@ -156,7 +156,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/librewolf-bin/librewolf-bin*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-app-library-git ? (yes/no): " answer
@@ -167,7 +167,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-app-library-git/cosmic-app-library-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-icons-git ? (yes/no): " answer
@@ -182,7 +182,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-icons-git/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-icons-git/cosmic-icons-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-applets-git ? (yes/no): " answer
@@ -194,7 +194,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-applets-git/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-applets-git/cosmic-icons-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-applets-git/cosmic-applets-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-bg-git ? (yes/no): " answer
@@ -205,7 +205,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-bg-git/cosmic-bg-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-comp-git ? (yes/no): " answer
@@ -216,7 +216,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-comp-git/cosmic-comp-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-files-git ? (yes/no): " answer
@@ -227,7 +227,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-files-git/cosmic-files-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-greeter-git ? (yes/no): " answer
@@ -239,7 +239,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-greeter-git/cosmic-comp-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-greeter-git/cosmic-greeter-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-idle-git ? (yes/no): " answer
@@ -250,7 +250,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-idle-git/cosmic-idle-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-launcher-git ? (yes/no): " answer
@@ -266,7 +266,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-launcher-git/pop-launcher-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-launcher-git/cosmic-launcher-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-launcher-git/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-notifications-git ? (yes/no): " answer
@@ -277,7 +277,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-notifications-git/cosmic-notifications-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-osd-git ? (yes/no): " answer
@@ -288,7 +288,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-osd-git/cosmic-osd-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-panel-git ? (yes/no): " answer
@@ -299,7 +299,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-panel-git/cosmic-panel-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-randr-git ? (yes/no): " answer
@@ -312,7 +312,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-randr-git/cosmic-randr-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install xdg-desktop-portal-cosmic-git ? (yes/no): " answer
@@ -323,7 +323,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/xdg-desktop-portal-cosmic-git/xdg-desktop-portal-cosmic-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-screenshot-git ? (yes/no): " answer
@@ -335,7 +335,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-screenshot-git/xdg-desktop-portal-cosmic-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-screenshot-git/cosmic-screenshot-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-settings-daemon-git ? (yes/no): " answer
@@ -350,7 +350,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-daemon-git/pop-sound-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-daemon-git/cosmic-settings-daemon-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-settings-git ? (yes/no): " answer
@@ -362,7 +362,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-git/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-git/cosmic-icons-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-git/cosmic-randr-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-settings-git/cosmic-settings-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-workspaces-git ? (yes/no): " answer
@@ -373,7 +373,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-workspaces-git/cosmic-workspaces-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-session-git ? (yes/no): " answer
@@ -385,7 +385,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-session-git/*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-term-git ? (yes/no): " answer
@@ -397,7 +397,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-term-git/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-term-git/cosmic-icons-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-term-git/cosmic-term-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 read -p "Do you want to install cosmic-edit-git ? (yes/no): " answer
@@ -409,7 +409,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-edit-git/pop-icon-theme-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-edit-git/cosmic-icons-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-edit-git/cosmic-edit-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
-    echo "Invalid input. Please enter 'yes' or 'no'."
+    echo "Continue."
 fi
 
 sudo cp /etc/sudoers.bak /etc/sudoers
