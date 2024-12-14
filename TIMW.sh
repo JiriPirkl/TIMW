@@ -94,8 +94,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     cd /home/$username/TIMW-AUR/sources/mesa-git/
     makechrootpkg -c -r /home/$username/chroot/ -I directx-headers-git*.pkg.tar.zst -- --skipinteg
     rm -rf *debug*.pkg.tar.zst
-    mv /home/$username/TIMW-AUR/sources/mesa-git/directx-headers-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/
-    mv /home/$username/TIMW-AUR/sources/mesa-git/mesa-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/lib32-mesa-git/
+    mv /home/$username/TIMW-AUR/sources/mesa-git/directx-headers-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/ ; mv /home/$username/TIMW-AUR/sources/mesa-git/mesa-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/lib32-mesa-git/
     cd /home/$username/TIMW-AUR/sources/lib32-mesa-git/
     makechrootpkg -c -r /home/$username/chroot/ -I mesa-git*.pkg.tar.zst -- --skipinteg
     rm -rf *debug*.pkg.tar.zst
