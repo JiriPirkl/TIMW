@@ -235,7 +235,7 @@ if [[ "$answer" =~ ^[Yy] ]]; then
     arch-nspawn /home/$username/chroot/root pacman -Syu --noconfirm
     cd /home/$username/TIMW-AUR/sources/cosmic/cosmic-greeter-git
     mv /home/$username/TIMW-AUR/x86_64/cosmic/cosmic-comp-git*.pkg.tar.zst /home/$username/TIMW-AUR/sources/cosmic/cosmic-greeter-git
-    makechrootpkg -c -r /home/$username/chroot/ -- --skipinteg
+    makechrootpkg -c -r /home/$username/chroot/ -I cosmic-comp-git*.pkg.tar.zst -- --skipinteg
     rm -rf *debug*.pkg.tar.zst
     mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-greeter-git/cosmic-comp-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/ ; mv /home/$username/TIMW-AUR/sources/cosmic/cosmic-greeter-git/cosmic-greeter-git*.pkg.tar.zst /home/$username/TIMW-AUR/x86_64/cosmic/
 else
