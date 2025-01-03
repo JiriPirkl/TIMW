@@ -21,7 +21,7 @@ provides=("${pkgname%-git}")
 conflicts=("${pkgname%-git}" 'cosmic-applibrary')
 source=('git+https://github.com/pop-os/cosmic-applibrary.git')
 sha256sums=('SKIP')
-options=(!lto)
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 
 pkgver() {
   cd cosmic-applibrary
