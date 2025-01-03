@@ -26,7 +26,7 @@ source=('git+https://github.com/pop-os/xdg-desktop-portal-cosmic.git'
         'lto.patch')
 sha256sums=('SKIP'
             'd731157887872770c6964303ff89245090cd47ce68cb48aecd633e6ac40a685f')
-options=(!lto)
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 
 pkgver() {
   cd "${pkgname%-git}"

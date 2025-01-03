@@ -10,7 +10,7 @@ license=('zlib/libpng')
 makedepends=('ninja' 'meson>=0.43' 'glslang' 'git' 'mingw-w64-gcc')
 provides=('dxvk' "dxvk=$pkgver")
 conflicts=('dxvk')
-options=(!lto !staticlibs)
+options=options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 source=(
     "git+https://github.com/doitsujin/dxvk.git"
     "dxvk-extraopts.patch"

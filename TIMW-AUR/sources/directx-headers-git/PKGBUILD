@@ -38,4 +38,4 @@ package() {
 
     install -m644 -Dt "${pkgdir}/usr/share/licenses/${pkgname}" DirectX-Headers/LICENSE
 }
-options=(!lto)
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)

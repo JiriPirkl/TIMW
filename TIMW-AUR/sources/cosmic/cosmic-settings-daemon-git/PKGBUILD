@@ -30,7 +30,7 @@ source=('git+https://github.com/pop-os/cosmic-settings-daemon.git'
         'lto.patch')
 sha256sums=('SKIP'
             '0d9c1cdf9fcb68116e2d16c5d6ea575d64a11386d6fb3a39e6e07fb5b3ee7798')
-options=(!lto)
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 
 pkgver() {
   cd "${pkgname%-git}"

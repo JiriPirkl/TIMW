@@ -24,7 +24,7 @@ source=('git+https://github.com/pop-os/cosmic-term.git'
         'lto.patch')
 sha256sums=('SKIP'
             'b83d3403f73ad54363339304bdeca4d36ce11dfa17d5df51cc292d28fa78e824')
-options=(!lto)
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 
 pkgver() {
   cd "${pkgname%-git}"

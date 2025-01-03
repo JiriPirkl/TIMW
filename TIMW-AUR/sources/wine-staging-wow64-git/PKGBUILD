@@ -74,7 +74,7 @@ for i in "${_makeoptdeps[@]}"; do
   [ -n "${i##*::}" ] && optdepends+=("${i##*::}")
 done
 
-options=(staticlibs !lto)
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 backup=("usr/lib/binfmt.d/wine.conf")
 
 # provides/depends

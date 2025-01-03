@@ -18,7 +18,7 @@ source=("git+$url.git"
 )
 md5sums=('SKIP')
 sha512sums=('SKIP')
-options=(!lto)
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 
 pkgver() {
     cd $_srcname

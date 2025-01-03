@@ -10,7 +10,7 @@ license=('LGPL-2.1')
 makedepends=('ninja' 'meson>=0.43' 'glslang' 'git' 'mingw-w64-gcc' 'mingw-w64-tools')
 provides=('vkd3d-proton' 'd3d12.dll' "vkd3d-proton=$pkgver")
 conflicts=('vkd3d-proton' 'd3d12.dll')
-options=(!lto !staticlibs)
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 source=(
     "git+https://github.com/HansKristian-Work/vkd3d-proton.git"
     "vkd3d-proton-extraopts.patch"

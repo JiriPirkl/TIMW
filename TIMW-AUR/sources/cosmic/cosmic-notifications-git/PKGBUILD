@@ -25,7 +25,7 @@ source=('git+https://github.com/pop-os/cosmic-notifications.git'
         'lto.patch')
 sha256sums=('SKIP'
             '4cacb38bd2c25710dc67ba298acb0b6b1cf37e10dee0ea6e34ea72bd9e59b832')
-options=(!lto)
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 
 pkgver() {
   cd "${pkgname%-git}"

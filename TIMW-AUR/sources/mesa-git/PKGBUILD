@@ -109,7 +109,7 @@ b2sums=('SKIP'
         '2cff6626624d03f70f1662af45a8644c28a9f92e2dfe38999bef3ba4a4c1ce825ae598277e9cb7abd5585eebfb17b239effc8d0bbf1c6ac196499f0d288e5e01')
 
 
-options=(!lto)
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 # lto and debug are disabled manually through meson -D flags, but it feels cleaner to also list them here.
 
 # Rust crates for NVK, used as Meson subprojects

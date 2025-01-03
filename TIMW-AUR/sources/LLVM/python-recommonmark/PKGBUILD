@@ -20,7 +20,7 @@ sha256sums=('bdb4db649f2222dcd8d2d844f0006b958d627f732415d399791ee436a3686d67'
             '1a87d217d685b38e87fe67a6726b31f3e25333280da8e88dc7b52e93b7881f67'
             '0672b55c9bd49d24cfe86cd29fa93d1ebde3f757df606e7aea74ba6e58deff26')
 
-options=(!lto)
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 prepare() {
   cd $_name-$pkgver
   patch -Np1 -i ../autostructify-tab_width-fallback.patch

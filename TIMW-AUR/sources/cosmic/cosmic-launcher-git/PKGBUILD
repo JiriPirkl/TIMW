@@ -26,7 +26,7 @@ source=('git+https://github.com/pop-os/cosmic-launcher.git'
         'lto.patch')
 sha256sums=('SKIP'
             '99e2aa0f35130c19934e0c2b8b06375af730e37b288e98e815c4105194ff4397')
-options=(!lto)
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 
 pkgver() {
   cd "${pkgname%-git}"
