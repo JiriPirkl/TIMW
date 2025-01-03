@@ -27,7 +27,7 @@
 #Do you want to build cosmic-session-git (yes/no)
 #Do you want to build cosmic-term-git (yes/no)
 #Do you want to build cosmic-edit-git (yes/no)
-sh build.sh <<< "timw
+sh build-aur.sh <<< "timw
 n
 y
 y
