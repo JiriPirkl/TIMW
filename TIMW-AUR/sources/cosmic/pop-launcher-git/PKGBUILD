@@ -25,7 +25,7 @@ makedepends=(
 )
 source=('git+https://github.com/pop-os/launcher.git')
 sha256sums=('SKIP')
-options=(!lto)
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 
 pkgver() {
   cd launcher
