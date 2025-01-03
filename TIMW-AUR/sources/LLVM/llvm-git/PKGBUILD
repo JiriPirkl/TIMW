@@ -29,7 +29,7 @@ source=("llvm-project::git+https://github.com/JiriPirkl/llvm-project.git"
         "llvm-config.h")
 
 b2sums=('SKIP')
-options=('staticlibs' '!lto' '!debug')
+options=('staticlibs' '!lto')
 
 # NINJAFLAGS is an env var used to pass commandline options to ninja
 # NOTE: It's your responbility to validate the value of $NINJAFLAGS. If unsure, don't set it.

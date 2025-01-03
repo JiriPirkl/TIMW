@@ -13,6 +13,7 @@ source=("git+https://github.com/ilya-zlobintsev/LACT.git")
 sha512sums=("SKIP")
 provides=('lact')
 install=lact.install
+options=(!lto)
 
 pkgver() {
   cd LACT

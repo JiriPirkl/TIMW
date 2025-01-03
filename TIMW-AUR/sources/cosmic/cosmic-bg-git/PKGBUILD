@@ -26,6 +26,7 @@ source=('git+https://github.com/pop-os/cosmic-bg.git'
         'lto.patch')
 sha256sums=('SKIP'
             'fa29e15bc552eaf2a656c270c83f8564d85f30216198f3e30a7040f8659174b8')
+options=(!lto)
 
 pkgver() {
   cd "${pkgname%-git}"

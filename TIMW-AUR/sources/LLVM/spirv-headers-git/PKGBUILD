@@ -15,6 +15,7 @@ sha1sums=('SKIP')
 makedepends=('git' 'cmake')
 conflicts=('spirv-headers')
 provides=("spirv-headers=1:$pkgver")
+options=(!lto)
 
 pkgver() {
     cd "$_pkgname"

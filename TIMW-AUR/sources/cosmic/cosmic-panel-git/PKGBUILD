@@ -20,6 +20,7 @@ provides=("${pkgname%-git}")
 conflicts=("${pkgname%-git}")
 source=('git+https://github.com/pop-os/cosmic-panel.git')
 sha256sums=('SKIP')
+options=(!lto)
 
 pkgver() {
   cd "${pkgname%-git}"

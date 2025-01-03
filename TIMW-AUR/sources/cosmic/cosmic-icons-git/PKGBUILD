@@ -10,7 +10,7 @@ depends=('pop-icon-theme-git')
 makedepends=('git' 'just')
 provides=("${pkgname%-git}" 'cosmic-icon-theme')
 conflicts=("${pkgname%-git}" 'cosmic-icon-theme')
-options=('!strip')
+options=('!strip' '!lto')
 source=('git+https://github.com/pop-os/cosmic-icons.git')
 sha256sums=('SKIP')
 

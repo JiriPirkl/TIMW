@@ -17,6 +17,7 @@ provides=(lib32-spirv-llvm-translator)
 conflicts=(lib32-spirv-llvm-translator)
 source=(git+${url}.git)
 sha256sums=('SKIP')
+options=(!lto)
 
 pkgver() {
     cd $_srcname

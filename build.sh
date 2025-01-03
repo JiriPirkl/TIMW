@@ -1,7 +1,7 @@
 #!/bin/bash
 read -p "Enter your username: " username
 SOURCE_DIR="/home/$username/TIMW/TIMW-AUR"
-DEST_DIR="/home/$username"
+DEST_DIR="/home/$username/TIMW-AUR"
 
 if [ ! -d "$DEST_DIR" ]; then
     cp -r "$SOURCE_DIR" "$DEST_DIR"
@@ -11,6 +11,7 @@ fi
 
 sudo pacman -Syu --noconfirm --needed
 sh /home/$username/TIMW-AUR/sources/LLVM/rustup-init.sh
+. "$HOME/.cargo/env"
 
 read -p "Do you want to build llvm-git ? (yes/no): " answer
 if [[ "$answer" =~ ^[Yy] ]]; then

@@ -25,6 +25,7 @@ source=('git+https://github.com/pop-os/cosmic-edit.git'
         'lto.patch')
 sha256sums=('SKIP'
             'a6bd11d790dbdc9eaa3741990eaa4d7ac1e123f8b30ac62cd9303670be98fbfb')
+options=(!lto)
 
 pkgver() {
   cd "${pkgname%-git}"
