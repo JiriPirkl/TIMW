@@ -1,4 +1,6 @@
 #install chroot
+sudo umount /var/chroot
+sudo rm -rf /var/chroot
 sudo pacman -S arch-install-scripts --noconfirm --needed
 sudo mkdir /var/chroot
 sudo pacstrap -K /var/chroot base base-devel
