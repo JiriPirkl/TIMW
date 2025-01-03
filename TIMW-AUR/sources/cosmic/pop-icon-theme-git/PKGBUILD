@@ -12,7 +12,7 @@ depends=('adwaita-icon-theme')
 makedepends=('git' 'meson')
 provides=("${pkgname%-git}")
 conflicts=("${pkgname%-git}")
-options=('!strip' '!lto')
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 source=('git+https://github.com/pop-os/icon-theme.git')
 sha256sums=('SKIP')
 
