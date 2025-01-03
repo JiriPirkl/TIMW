@@ -21,6 +21,7 @@ source=('git+https://github.com/pop-os/cosmic-screenshot.git'
         'lto.patch')
 sha256sums=('SKIP'
             '8d28dda22fe8cff909bdb9dfc241ba2e426c835800a4f63c7ee5cab3f3b72743')
+options=(!lto)
 
 pkgver() {
   cd "${pkgname%-git}"
