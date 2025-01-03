@@ -27,7 +27,7 @@ depends=(lib32-glibc lib32-gcc-libs spirv-tools-git sh)
 makedepends=(cmake python git spirv-headers-git)
 conflicts=(lib32-spirv-tools)
 provides=(lib32-spirv-tools)
-
+options=(!lto)
 
 cmake_args=(
   -G "Unix Makefiles"
