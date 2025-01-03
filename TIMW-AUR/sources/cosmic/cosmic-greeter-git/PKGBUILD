@@ -37,7 +37,7 @@ source=('git+https://github.com/pop-os/cosmic-greeter.git'
 sha256sums=('SKIP'
             '12772a54559f299f9f8e8c5687b9aff30f37e38328e59692e27861f94cf6a0c7'
             '0c64dcae8a0232a15ff5ce1d8728434b12125bdbb098fba4ae21624a977f1e57')
-options=(!lto)
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 
 pkgver() {
   cd "${pkgname%-git}"
