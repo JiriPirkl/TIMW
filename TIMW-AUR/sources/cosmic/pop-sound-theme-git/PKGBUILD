@@ -11,7 +11,7 @@ provides=("${pkgname%-git}")
 conflicts=("${pkgname%-git}" 'pop-gtk-theme')
 source=('git+https://github.com/pop-os/gtk-theme.git')
 sha256sums=('SKIP')
-options=(!lto)
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 
 pkgver() {
   cd gtk-theme
