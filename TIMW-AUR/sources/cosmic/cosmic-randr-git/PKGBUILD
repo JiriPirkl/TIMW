@@ -22,6 +22,7 @@ source=('git+https://github.com/pop-os/cosmic-randr.git'
         'lto.patch')
 sha256sums=('SKIP'
             '046eb734f9fb3a3c17ccb5eb5a317d4b155f50e5e140789ecb6ce2d3e749946c')
+options=(!lto)
 
 pkgver() {
   cd "${pkgname%-git}"
