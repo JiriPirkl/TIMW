@@ -38,7 +38,7 @@ optdepends=(
 )
 provides=("${pkgname%-git}")
 conflicts=("${pkgname%-git}")
-options=('!lto')
+options=(strip !docs !libtool !staticlibs !emptydirs zipman purge !debug lto)
 source=('git+https://github.com/pop-os/cosmic-settings.git')
 sha256sums=('SKIP')
 
