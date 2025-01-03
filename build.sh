@@ -1,7 +1,7 @@
 #!/bin/bash
 read -p "Enter your username: " username
 SOURCE_DIR="/home/$username/TIMW/TIMW-AUR"
-DEST_DIR="/home/$username"
+DEST_DIR="/home/$username/TIMW-AUR"
 
 if [ ! -d "$DEST_DIR" ]; then
     cp -r "$SOURCE_DIR" "$DEST_DIR"
