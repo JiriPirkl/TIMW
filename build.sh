@@ -1,6 +1,14 @@
 #!/bin/bash
 read -p "Enter your username: " username
-echo "Hello, $username!"
+SOURCE_DIR="/home/$username/TIMW/TIMW-AUR"
+DEST_DIR="/home/$username"
+
+if [ ! -d "$DEST_DIR" ]; then
+    cp -r "$SOURCE_DIR" "$DEST_DIR"
+else
+    echo "Continue."
+fi
+
 sudo pacman -Syu --noconfirm --needed
 sh /home/$username/TIMW-AUR/sources/LLVM/rustup-init.sh
 
