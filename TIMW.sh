@@ -15,53 +15,24 @@ TIMW() {
   TIMW_SERVICE="$HOME/.config/systemd/user/timw-http-server.service"
 
   main_menu() {
-    clear
-    echo "===== TIMW Main Menu ====="
+    clear; echo "===== TIMW Main Menu ====="
     echo "1) Install"
-    echo "2) Install Packages"
-    echo "3) Build Packages"
+    echo "2) Install package"
+    echo "3) Install TIMW-AUR packages"
+    echo "4) Build package"
+    echo "5) Build TIMW-AUR packages"
     echo "0) Exit"
     read -rp "Select an option: " opt
     case $opt in
       1) menu_install ;;
-      2) install_packages_menu ;;
-      3) build_packages_menu ;;
+      2) menu_pkg install ;;
+      3) menu_timw_aur ;;
+      4) menu_pkg build ;;
+      5) menu_build_timw_aur ;;
       0) return ;;
       *) echo "Invalid choice"; sleep 1 ;;
     esac
     main_menu
-  }
-
-  install_packages_menu() {
-    clear
-    echo "===== Install Packages ====="
-    echo "1) Install package"
-    echo "2) Install TIMW-AUR packages"
-    echo "0) Back"
-    read -rp "Select: " opt
-    case $opt in
-      1) menu_pkg install ;;
-      2) menu_timw_aur install ;;
-      0) return ;;
-      *) echo "Invalid choice"; sleep 1 ;;
-    esac
-    install_packages_menu
-  }
-
-  build_packages_menu() {
-    clear
-    echo "===== Build Packages ====="
-    echo "1) Build package"
-    echo "2) Build TIMW-AUR packages"
-    echo "0) Back"
-    read -rp "Select: " opt
-    case $opt in
-      1) menu_pkg build ;;
-      2) menu_timw_aur build ;;
-      0) return ;;
-      *) echo "Invalid choice"; sleep 1 ;;
-    esac
-    build_packages_menu
   }
 
   menu_install() {
@@ -151,39 +122,85 @@ S
   }
 
   menu_timw_aur() {
-    op=$1
-    clear; echo "===== ${op^} TIMW-AUR ====="
+    clear; echo "===== Install TIMW-AUR ====="
     echo "1) In chroot"; echo "2) Local"; echo "0) Back"
     read -rp "Select: " c
     case $c in
-      1) menu_timw_aur_pkgs "arch-nspawn \"$CHROOT/root\" pacman -Syu" "$op" ;;
-      2) menu_timw_aur_pkgs "sudo pacman -Syu" "$op" ;;
+      1) menu_timw_aur_pkgs "arch-nspawn \"$CHROOT/root\" pacman -Syu" ;;
+      2) menu_timw_aur_pkgs "sudo pacman -Syu" ;;
       0) return ;;
       *) echo "Invalid choice"; sleep 1 ;;
     esac
-    menu_timw_aur $op
+    menu_timw_aur
   }
 
   menu_timw_aur_pkgs() {
-    cmd="$1"; op="$2"
+    cmd="$1"
     while true; do
       clear
       echo "===== TIMW-AUR ====="
-      echo "0) Back"; echo "a) All packages"
-      i=1; for pkg in $TIMW_PKGS; do echo "$i) $pkg"; ((i++)); done
-      read -rp "Select package(s) (semicolon-separated): " sel
-      [[ $sel == "0" ]] && return
-      [[ $sel == "a" ]] && { 
-        if [[ $op == install ]]; then eval "$cmd \$TIMW_PKGS --needed"; 
-        else
-          for pkg in $TIMW_PKGS; do eval "$cmd $pkg --needed"; done
-        fi
-      }
-      [[ $sel != "0" && $sel != "a" ]] && IFS=';' read -ra s <<< "$sel"; for n in "${s[@]}"; do
-        n=$(echo "$n" | xargs)
-        [[ $n =~ ^[0-9]+$ ]] && (( n >= 1 && n <= $(echo $TIMW_PKGS | wc -w) )) && pkg=$(echo $TIMW_PKGS | cut -d' ' -f$n)
-        if [[ $op == install ]]; then eval "$cmd \$pkg --needed"; else eval "$cmd $pkg --needed"; fi
+      echo "0) Back"; echo "a) Install ALL packages"
+      i=1
+      for pkg in $TIMW_PKGS; do
+        echo "$i) $pkg"; ((i++))
       done
+      read -rp "Select package(s) to install (separate multiple with ;): " sel
+      [[ $sel == "0" ]] && return
+      [[ $sel == "a" ]] && eval "$cmd \$TIMW_PKGS --needed"
+      if [[ $sel != "a" && $sel != "0" ]]; then
+        IFS=';' read -ra s <<< "$sel"
+        for n in "${s[@]}"; do
+          n=$(echo "$n" | xargs)
+          [[ $n =~ ^[0-9]+$ ]] && (( n >= 1 && n <= $(echo $TIMW_PKGS | wc -w) )) && pkg=$(echo $TIMW_PKGS | cut -d' ' -f$n) && eval "$cmd \$pkg"
+        done
+      fi
+    done
+  }
+
+  menu_build_timw_aur() {
+    entries=()
+    while IFS= read -r -d '' dir; do
+      pkg=$(basename "$dir"); vdir="$dir/variants"
+      if [[ -d "$vdir" ]]; then
+        vi=1
+        while IFS= read -r -d '' vd; do
+          entries+=("$vd|$pkg.$vi"); ((vi++))
+        done < <(find "$vdir" -mindepth 1 -maxdepth 1 -type d -print0 | sort -zV)
+      else
+        entries+=("$dir|$pkg")
+      fi
+    done < <(find "$USER_HOME/TIMW/PKGBUILD" -mindepth 1 -maxdepth 1 -type d -print0 | sort -zV)
+
+    while true; do
+      clear
+      echo "===== Build TIMW-AUR Packages ====="
+      echo "0) Back"; echo "a) Build ALL packages"
+      i=1
+      for e in "${entries[@]}"; do echo "$i) ${e#*|}"; ((i++)); done
+      read -rp "Select package(s) to build (separate multiple with ;): " sel
+      [[ $sel == "0" ]] && return
+
+      build_single_pkg() {
+        d=$1
+        cd "$d" || return
+        makechrootpkg -c -r "$CHROOT" -- --skipinteg
+        mv *.pkg.tar.zst /mnt/localrepo
+        cd /mnt/localrepo || return
+        repo-add TIMW-AUR.db.tar.gz *.pkg.tar.zst
+        systemctl --user restart timw-http-server.service
+        arch-nspawn "$CHROOT/root" pacman -Syu
+        echo "Done building $d."
+      }
+
+      if [[ $sel == "a" ]]; then
+        for e in "${entries[@]}"; do build_single_pkg "${e%%|*}"; done
+      else
+        IFS=';' read -ra s <<< "$sel"
+        for n in "${s[@]}"; do
+          n=$(echo "$n" | xargs)
+          [[ $n =~ ^[0-9]+$ ]] && (( n >= 1 && n <= ${#entries[@]} )) && build_single_pkg "${entries[$((n-1))]%%|*}"
+        done
+      fi
     done
   }
 
@@ -192,4 +209,3 @@ S
 EOF
 
 echo "alias timw=TIMW" >> "$HOME/.bashrc"
-source "$HOME/.bashrc"
