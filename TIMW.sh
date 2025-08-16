@@ -111,7 +111,7 @@ S
           read -rp "Package name(s): " pkg
           [[ -n "$pkg" ]] && sudo pacman -Syu $pkg
         else
-          read -rp "Directory with PKGBUILD: " dir
+          read -e -p "Directory with PKGBUILD: " dir
           [[ -d "$dir" ]] && cd "$dir" && makepkg -src --skipinteg && mv *.pkg.tar.zst /mnt/localrepo && cd /mnt/localrepo && repo-add TIMW-AUR.db.tar.gz *.pkg.tar.zst && systemctl --user restart timw-http-server.service && sudo pacman -Syu
         fi
         ;;
