@@ -161,7 +161,7 @@ S
 
     while true; do clear
       echo "===== Build TIMW-AUR Packages ====="
-      echo "0) Back"; echo "a) Build ALL packages/variants"
+      echo "0) Back"; echo "a) Build ALL packages"
       i=1; for e in "${entries[@]}"; do echo "$i) ${e#*|}"; ((i++)); done
       read -rp "Select package(s) to build (separate multiple with ;): " sel
       [[ $sel == "0" ]] && return
