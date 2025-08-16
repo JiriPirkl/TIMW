@@ -146,7 +146,6 @@ S
         n=$(echo "$n" | xargs)
         [[ $n =~ ^[0-9]+$ ]] && (( n >= 1 && n <= $(echo $TIMW_PKGS | wc -w) )) && pkg=$(echo $TIMW_PKGS | cut -d' ' -f$n) && eval "$cmd \$pkg"
       done
-      read -rp "Press Enter to continue..." _
     done
   }
 
@@ -170,7 +169,7 @@ S
         d=$1; cd "$d" || return; makechrootpkg -c -r "$CHROOT" -- --skipinteg
         mv *.pkg.tar.zst /mnt/localrepo; cd /mnt/localrepo || return
         repo-add TIMW-AUR.db.tar.gz *.pkg.tar.zst; systemctl --user restart timw-http-server.service
-        arch-nspawn "$CHROOT/root" pacman -Syu; echo "Done $d."; read -rp "Press Enter..."
+        arch-nspawn "$CHROOT/root" pacman -Syu; echo "Done $d."
       }
       if [[ $sel == "a" ]]; then for e in "${entries[@]}"; do build_single_pkg "${e%%|*}"; done
       else IFS=';' read -ra s <<< "$sel"; for n in "${s[@]}"; do
